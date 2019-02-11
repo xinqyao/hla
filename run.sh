@@ -1,19 +1,24 @@
-## Do a simple one-step soft-core decompling simulation for testing purpose
+## Do a simple one-step soft-core decoupling simulation for testing purpose
 
-# Input files:
+# Input files (assume present in your working directory):
 # - ligand_vina.pdb (from docking)
 # - sys_nowat.pdb (from docking)
-# - ref.pdb
-# - zinc_4400.mol2
+# - ref.pdb (the B57:01 structure used to map the peptide-presenting domain in other alleles)
+# - zinc_4400.mol2 (Mol2 file of abacavir or ABC)
 # - 0_process_pdb.r
-# - min.sander
-# - heat.sander
-# - md.sander
+# - enmin.sander
+# - nvt.sander
+# - npt.sander
+# - prod.sander
 # - ff/* (Antechamber generated force field files for ligand)
 
 module load amber/18
+export CUDA_VISIBLE_DEVICES="0"
+
 
 ## 0. Build the topology
+## - Following commands will cut the receptor to keep the peptide-presenting domain only,
+## - and prepare for the ligand PDB file.
 Rscript 0_process_pdb.r
 
 ln -s sys_nowat_cut.pdb receptor.pdb
@@ -28,6 +33,7 @@ EOF
 
 tleap -s -f setup_ligand.leap &> setup_ligand.log
 
+## - Generate toplogy files for the complex
 cat >tleap.in << EOF
 source leaprc.protein.ff14SB
 source leaprc.water.tip3p
@@ -50,5 +56,22 @@ EOF
 
 tleap -f tleap.in &> leap.log
 
-## 1. Energy minimization
+## 1. Energy minimization, Heating, and Equilibration
+## NOTE: you might need to modify the path to match your local environment
+mkdir enmin_equil
+cd enmin_equil
+cp ../complex_box.prmtop ../complex_box.inpcrd ../enmin.sander ../nvt.sander ../npt.sander ./ 
+mpirun -v -np 10 pmemd.MPI -O -i enmin.sander -p complex_box.prmtop -c complex_box.inpcrd -o enmin.out -r enmin.restrt -ref complex_box.inpcrd
+pmemd.cuda -O -i nvt.sander -p complex_box.prmtop -c enmin.restrt -o nvt.out -r nvt.restrt -ref enmin.restrt 
+pmemd.cuda -O -i npt.sander -p complex_box.prmtop -c nvt.restrt -o npt.out -r npt.restrt
+cd ..
+
+## 2. Production
+mkdir production
+cd production
+cp ../complex_box.prmtop ../enmin_equil/npt.restrt ../prod.sander ./
+pmemd.cuda -O -i prod.sander -p complex_box.prmtop -c npt.restrt -o prod.out -r prod.restrt -x prod.mdcrd 
+
+## 3. MBAR processing
+
 

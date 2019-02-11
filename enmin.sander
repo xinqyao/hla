@@ -18,4 +18,10 @@ Energy minimization w/ restraints
   cut    = 10.0,     nsnb   = 10,
 
   ntr    = 0,
+  nmropt = 1,
  /
+&wt type='REST', value1=1.0, /
+&wt type='END' /
+LISTOUT=POUT
+DISANG=RST.all
+
