@@ -13,7 +13,9 @@
 # - ff/* (Antechamber generated force field files for ligand)
 
 module load amber/18
-export CUDA_VISIBLE_DEVICES="0"
+gpu=1
+ncore=6
+export CUDA_VISIBLE_DEVICES=${gpu}
 
 
 ## 0. Build the topology
@@ -60,8 +62,8 @@ tleap -f tleap.in &> leap.log
 ## NOTE: you might need to modify the path to match your local environment
 mkdir enmin_equil
 cd enmin_equil
-cp ../complex_box.prmtop ../complex_box.inpcrd ../enmin.sander ../nvt.sander ../npt.sander ./ 
-mpirun -v -np 10 pmemd.MPI -O -i enmin.sander -p complex_box.prmtop -c complex_box.inpcrd -o enmin.out -r enmin.restrt -ref complex_box.inpcrd
+cp ../complex_box.prmtop ../complex_box.inpcrd ../enmin.sander ../nvt.sander ../npt.sander ../RST.all ./ 
+mpirun -v -np ${ncore} pmemd.MPI -O -i enmin.sander -p complex_box.prmtop -c complex_box.inpcrd -o enmin.out -r enmin.restrt -ref complex_box.inpcrd
 pmemd.cuda -O -i nvt.sander -p complex_box.prmtop -c enmin.restrt -o nvt.out -r nvt.restrt -ref enmin.restrt 
 pmemd.cuda -O -i npt.sander -p complex_box.prmtop -c nvt.restrt -o npt.out -r npt.restrt
 cd ..
