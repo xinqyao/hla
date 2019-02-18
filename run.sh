@@ -13,8 +13,8 @@
 # - ff/* (Antechamber generated force field files for ligand)
 
 module load amber/18
-gpu=1
-ncore=6
+gpu=0
+ncore=10
 export CUDA_VISIBLE_DEVICES=${gpu}
 
 
@@ -71,9 +71,12 @@ cd ..
 ## 2. Production
 mkdir production
 cd production
-cp ../complex_box.prmtop ../enmin_equil/npt.restrt ../prod.sander ./
+cp ../complex_box.prmtop ../enmin_equil/npt.restrt ../prod.sander ../RST.all ../split_mdout.r ../analysis.sh ./
 pmemd.cuda -O -i prod.sander -p complex_box.prmtop -c npt.restrt -o prod.out -r prod.restrt -x prod.mdcrd 
 
 ## 3. MBAR processing
-
+#TODO: 1. Alchemical analysis python package (doi:10.1007/s10822-015-9840-9)
+#      2. Estimate Autocorrelation times by pymbar (doi:10.1101/021659)
+Rscript split_mdout.r
+bash analysis.sh
 
