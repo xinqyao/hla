@@ -71,7 +71,7 @@ cd ..
 ## 2. Production
 mkdir production
 cd production
-cp ../complex_box.prmtop ../enmin_equil/npt.restrt ../prod.sander ./
+cp ../complex_box.prmtop ../enmin_equil/npt.restrt ../prod.sander ../RST.all ./
 pmemd.cuda -O -i prod.sander -p complex_box.prmtop -c npt.restrt -o prod.out -r prod.restrt -x prod.mdcrd 
 
 ## 3. MBAR processing

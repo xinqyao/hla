@@ -22,7 +22,7 @@ Production in NPT w/ restraints, 21 windows, 5 ns / window (total 105 ns)
   tautp  = 0.2,
   gamma_ln = 1.0,
 
-  ntc    = 2,       tol    = 0.00001,    ntf    = 2,
+  ntc    = 2,       tol    = 0.00001,    ntf    = 1,
   cut    = 10.0,     nsnb   = 10,
 
   ntr    = 0,
