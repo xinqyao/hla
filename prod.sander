@@ -5,7 +5,7 @@ Production in NPT w/ restraints, 21 windows, 5 ns / window (total 105 ns)
   nscm   = 0, t= 0.0, dt = 0.002,
 
   ntx    = 5,        irest  = 1,       ntxo   = 2,
-  ntpr   = 10000,    ntwx   = 5000,    ntave  = 2500000,       ntwx   = 0,
+  ntpr   = 10000,    ntwx   = 5000,    ntave  = 2500000,
   ioutfm = 1, iwrap = 0, ntwr = 50000,
   ntwprt = 2893,
 
@@ -22,6 +22,8 @@ Production in NPT w/ restraints, 21 windows, 5 ns / window (total 105 ns)
   tautp  = 0.2,
   gamma_ln = 1.0,
 
+  ! ntc    = 2,       tol    = 0.00001,    ntf    = 2,
+  ! softcore potentials require ntf=1
   ntc    = 2,       tol    = 0.00001,    ntf    = 1,
   cut    = 10.0,     nsnb   = 10,
 
