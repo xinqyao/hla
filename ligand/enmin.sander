@@ -1,0 +1,22 @@
+Energy minimization w/ restraints
+ &cntrl
+  imin   = 1,       
+  maxcyc = 500,   
+  ncyc   = 200, 
+  ntx    = 1,       irest  = 0,       ntxo   = 1,
+  ntpr   = 20,      ntave  = 0,       ntwx   = 0, 
+  ioutfm = 0, iwrap = 0, 
+  ntwprt = 0,
+  ntmin  = 1,       dx0    = 0.01,     drms   = 0.0001,
+
+  ntb    = 1,
+  ntp    = 0,
+  ntt    = 0,       
+
+  ntc    = 2,       tol    = 0.00001,    ntf    = 2,
+
+  cut    = 10.0,     nsnb   = 10,
+
+  ntr    = 0,
+  nmropt = 0,
+ /
