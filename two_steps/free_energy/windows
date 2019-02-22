@@ -1,0 +1,3 @@
+#windows_decharge=$(seq 0.0 0.2 1.0)
+windows_recharge=$(seq 0.0 0.2 1.0)
+windows_vdw_bonded=$(seq 0.0 0.1 1.0)

@@ -1,0 +1,52 @@
+Remark line goes here
+MASS
+nv 14.010        0.530               same as nh 
+nu 14.010        0.530               same as nh 
+
+BOND
+ca-nu  417.90   1.386       same as ca-nh, penalty score=  0.0
+ca-nv  417.90   1.386       same as ca-nh, penalty score=  0.0
+hn-nv  404.60   1.012       same as hn-nh, penalty score=  0.0
+cx-nu  358.50   1.434       same as cx-nh, penalty score=  0.0
+hn-nu  404.60   1.012       same as hn-nh, penalty score=  0.0
+
+ANGLE
+ca-ca-nu   68.300     120.950   same as ca-ca-nh, penalty score=  0.0
+ca-nu-cx   63.000     124.230   same as ca-nh-cx, penalty score=  0.0
+ca-nu-hn   48.400     116.070   same as ca-nh-hn, penalty score=  0.0
+nb-ca-nu   72.700     116.940   same as nb-ca-nh, penalty score=  0.0
+nb-ca-nv   72.700     116.940   same as nb-ca-nh, penalty score=  0.0
+ca-nv-hn   48.400     116.070   same as ca-nh-hn, penalty score=  0.0
+cx-cx-nu   65.300     118.360   same as cx-cx-nh, penalty score=  0.0
+h1-cx-nu   49.300     115.140   same as h1-cx-nh, penalty score=  0.0
+cx-nu-hn   46.400     118.880   same as cx-nh-hn, penalty score=  0.0
+hn-nv-hn   40.100     115.120   same as hn-nh-hn, penalty score=  0.0
+
+DIHE
+ca-ca-nu-cx   4    4.200       180.000           2.000      same as X -ca-nh-X , penalty score=  0.0
+ca-ca-nu-hn   4    4.200       180.000           2.000      same as X -ca-nh-X , penalty score=  0.0
+cx-cx-nu-ca   6    0.000         0.000           2.000      same as X -c3-nh-X , penalty score= 92.0
+h1-cx-nu-ca   6    0.000         0.000           2.000      same as X -c3-nh-X , penalty score= 92.0
+nb-ca-nu-cx   4    4.200       180.000           2.000      same as X -ca-nh-X , penalty score=  0.0
+nb-ca-nu-hn   4    4.200       180.000           2.000      same as X -ca-nh-X , penalty score=  0.0
+nb-ca-nv-hn   4    4.200       180.000           2.000      same as X -ca-nh-X , penalty score=  0.0
+cx-cx-nu-hn   6    0.000         0.000           2.000      same as X -c3-nh-X , penalty score= 92.0
+h1-cx-nu-hn   6    0.000         0.000           2.000      same as X -c3-nh-X , penalty score= 92.0
+
+IMPROPER
+h5-na-cc-nd         1.1          180.0         2.0          Same as X -X -ca-ha, penalty score= 67.5 (use general term))
+ca-ca-ca-nd         1.1          180.0         2.0          Using the default value
+ca-nb-ca-nu         1.1          180.0         2.0          Using the default value
+nb-nb-ca-nv         1.1          180.0         2.0          Using the default value
+ca-na-ca-nb         1.1          180.0         2.0          Using the default value
+c3-ca-na-cc         1.1          180.0         2.0          Using the default value
+c2-c3-c2-ha         1.1          180.0         2.0          Same as X -X -ca-ha, penalty score= 47.1 (use general term))
+ca-hn-nv-hn         1.1          180.0         2.0          Using the default value
+ca-cx-nu-hn         1.1          180.0         2.0          Using the default value
+
+NONBON
+  nv          1.8240  0.1700             same as nh 
+  nu          1.8240  0.1700             same as nh 
+
+
+
