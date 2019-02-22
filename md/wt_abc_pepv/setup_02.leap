@@ -1,0 +1,47 @@
+##$AMBERHOME/exe/xleap -s -f $AMBERHOME/dat/leap/cmd/leaprc.ff99SB
+source leaprc.ff99SB
+source leaprc.gaff
+loadamberparams ff/aba.frcmod
+loadoff ff/aba.off
+#set default disulfide auto
+##-- Setup a nucleotide free and a GDP.MG system
+
+#addAtomTypes{{"O3" "O" "sp2"}}
+#
+##-- GDP
+#loadamberprep ff/GDP.prep
+#lig=loadpdb 1tag_gdp.pdb
+#loadamberparams ff/frcmod.phos #ADP.frcmod
+#
+###-- MG
+#mg=loadpdb 1tag_mg.pdb # after editing resname to MG2
+
+##-- PROT
+prot=loadpdb 3upr_prot.pdb #protein.pdb output from 
+lig=loadpdb 3upr_1kx.pdb #protein.pdb output from 
+
+bond prot.100.SG prot.163.SG
+bond prot.202.SG prot.258.SG
+bond prot.300.SG prot.355.SG
+
+###########################################
+##-- make SYSTEM one
+saveamberparm prot sys_nowat.prmtop sys_nowat.inpcrd
+
+## System 2
+sys=combine {prot lig}
+saveamberparm sys sys_lig_nowat.prmtop sys_lig_nowat.inpcrd
+
+##-- IONS
+addions prot Na+ 0
+addions sys Na+ 0
+
+#addions sys Cl- 0
+
+##-- SOLVATE
+solvatebox prot TIP3PBOX 12
+saveamberparm prot sys_box.prmtop sys_box.inpcrd
+
+solvatebox sys TIP3PBOX 12
+saveamberparm sys sys_lig_box.prmtop sys_lig_box.inpcrd
+quit
