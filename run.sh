@@ -56,7 +56,7 @@ saveamberparm sys complex_box.prmtop complex_box.inpcrd
 quit
 EOF
 
-tleap -f tleap.in &> leap.log
+tleap -f tleap.in &> leap_simple.log
 
 ## 1. Energy minimization, Heating, and Equilibration
 ## NOTE: you might need to modify the path to match your local environment
@@ -71,12 +71,23 @@ cd ..
 ## 2. Production
 mkdir production
 cd production
-cp ../complex_box.prmtop ../enmin_equil/npt.restrt ../prod.sander ../RST.all ../split_mdout.r ../analysis.sh ./
-pmemd.cuda -O -i prod.sander -p complex_box.prmtop -c npt.restrt -o prod.out -r prod.restrt -x prod.mdcrd 
+cp ../complex_box.prmtop ../enmin_equil/npt.restrt ../prod.sander.tmpl ../RST.all ../split_mdout.r ../analysis.sh ./
+
+windows=$(seq 0.0 0.05 1.0)
+for w in $windows; do
+   mkdir $w
+   cd $w
+   sed -e "s/%L%/$w/" ../prod.sander.tmpl > prod.sander
+   cp ../RST.all ./
+
+   pmemd.cuda -O -i prod.sander -p ../complex_box.prmtop -c ../npt.restrt -o prod.out -r prod.restrt -x prod.mdcrd 
+   
+   cd ..
+done
 
 ## 3. MBAR processing
 #TODO: 1. Alchemical analysis python package (doi:10.1007/s10822-015-9840-9)
 #      2. Estimate Autocorrelation times by pymbar (doi:10.1101/021659)
-Rscript split_mdout.r
+#Rscript split_mdout.r
 bash analysis.sh
 

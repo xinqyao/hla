@@ -1,11 +1,11 @@
-Production in NPT w/ restraints, 21 windows, 5 ns / window (total 105 ns)
+Production in NPT w/ restraints, 21 windows, 1 ns / window (total 21 ns)
  &cntrl
   imin   = 0,
-  nstlim = 52500000,
+  nstlim = 500000,
   nscm   = 0, t= 0.0, dt = 0.002,
 
   ntx    = 5,        irest  = 1,       ntxo   = 2,
-  ntpr   = 10000,    ntwx   = 5000,    ntave  = 2500000,
+  ntpr   = 1000,    ntwx   = 5000,    ntave  = 50000,
   ioutfm = 1, iwrap = 0, ntwr = 50000,
   ntwprt = 39,
 
@@ -33,8 +33,8 @@ Production in NPT w/ restraints, 21 windows, 5 ns / window (total 105 ns)
   icfe   = 1,
   ifsc   = 1,
   ifmbar = 1,
-  clambda= 0.0,
-  dynlmb = 0.05,
+  clambda= %L%,
+!  dynlmb = 0.05,
   klambda= 1,
   timask1= ':1',
   timask2= '',
