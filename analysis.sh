@@ -9,5 +9,5 @@ then
     fi
 fi
 
-alchemical_analysis -a AMBER -d data -p [01].*/prod -q out -o . -r 5 -u kcal -s 0 -g -w -f 10 -t 300
+alchemical_analysis -a AMBER -d . -p [01].[0-9][0-9]/prod -q out -o . -r 5 -u kcal -s 0 -g -w -f 10 -t 300
 
