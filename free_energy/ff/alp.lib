@@ -1,0 +1,119 @@
+!!index array str
+ "ALP"
+!entry.ALP.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+ "C1" "cc" 0 1 131072 1 6 0.382200
+ "C2" "cc" 0 1 131072 2 6 -0.370900
+ "C3" "c" 0 1 131072 3 6 0.746100
+ "O1" "o" 0 1 131072 4 8 -0.612500
+ "N1" "ns" 0 1 131072 5 7 -0.496400
+ "C4" "cc" 0 1 131072 6 6 0.508800
+ "N2" "nd" 0 1 131072 7 7 -0.613100
+ "C5" "cd" 0 1 131072 8 6 0.164100
+ "N3" "na" 0 1 131072 9 7 0.002400
+ "N4" "nd" 0 1 131072 10 7 -0.509800
+ "H1" "hn" 0 1 131072 11 1 0.338700
+ "H2" "h4" 0 1 131072 12 1 0.061100
+ "H3" "h5" 0 1 131072 13 1 0.057800
+ "H4" "hn" 0 1 131072 14 1 0.340500
+!entry.ALP.unit.atomspertinfo table  str pname  str ptype  int ptypex  int pelmnt  dbl pchg
+ "C1" "cc" 0 -1 0.0
+ "C2" "cc" 0 -1 0.0
+ "C3" "c" 0 -1 0.0
+ "O1" "o" 0 -1 0.0
+ "N1" "ns" 0 -1 0.0
+ "C4" "cc" 0 -1 0.0
+ "N2" "nd" 0 -1 0.0
+ "C5" "cd" 0 -1 0.0
+ "N3" "na" 0 -1 0.0
+ "N4" "nd" 0 -1 0.0
+ "H1" "hn" 0 -1 0.0
+ "H2" "h4" 0 -1 0.0
+ "H3" "h5" 0 -1 0.0
+ "H4" "hn" 0 -1 0.0
+!entry.ALP.unit.boundbox array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.ALP.unit.childsequence single int
+ 2
+!entry.ALP.unit.connect array int
+ 0
+ 0
+!entry.ALP.unit.connectivity table  int atom1x  int atom2x  int flags
+ 1 2 1
+ 1 10 2
+ 1 12 1
+ 2 3 1
+ 2 8 2
+ 3 4 2
+ 3 5 1
+ 5 6 1
+ 5 14 1
+ 6 7 2
+ 6 13 1
+ 7 8 1
+ 8 9 1
+ 9 10 1
+ 9 11 1
+!entry.ALP.unit.hierarchy table  str abovetype  int abovex  str belowtype  int belowx
+ "U" 0 "R" 1
+ "R" 1 "A" 1
+ "R" 1 "A" 2
+ "R" 1 "A" 3
+ "R" 1 "A" 4
+ "R" 1 "A" 5
+ "R" 1 "A" 6
+ "R" 1 "A" 7
+ "R" 1 "A" 8
+ "R" 1 "A" 9
+ "R" 1 "A" 10
+ "R" 1 "A" 11
+ "R" 1 "A" 12
+ "R" 1 "A" 13
+ "R" 1 "A" 14
+!entry.ALP.unit.name single str
+ "ALP"
+!entry.ALP.unit.positions table  dbl x  dbl y  dbl z
+ -11.973000 4.122000 1.199000
+ -11.539000 3.584000 -0.027000
+ -10.257000 3.533000 -0.731000
+ -9.255000 4.035000 -0.256000
+ -10.229000 2.906000 -1.930000
+ -11.357000 2.353000 -2.442000
+ -12.504000 2.388000 -1.829000
+ -12.652000 2.982000 -0.635000
+ -13.701000 3.165000 0.209000
+ -13.245000 3.867000 1.332000
+ -14.609000 2.859000 0.061000
+ -11.357000 4.650000 1.911000
+ -11.301000 1.861000 -3.402000
+ -9.397000 2.853000 -2.427000
+!entry.ALP.unit.residueconnect table  int c1x  int c2x  int c3x  int c4x  int c5x  int c6x
+ 0 0 0 0 0 0
+!entry.ALP.unit.residues table  str name  int seq  int childseq  int startatomx  str restype  int imagingx
+ "ALP" 1 15 1 "?" 0
+!entry.ALP.unit.residuesPdbSequenceNumber array int
+ 0
+!entry.ALP.unit.solventcap array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.ALP.unit.velocities table  dbl x  dbl y  dbl z
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
