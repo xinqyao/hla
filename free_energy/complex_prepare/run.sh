@@ -39,3 +39,4 @@ EOF
 
 tleap -f tleap.in &> leap_simple.log
 
+Rscript add_restraints.r

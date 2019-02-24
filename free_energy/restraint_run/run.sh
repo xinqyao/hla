@@ -16,6 +16,7 @@ w_all=( $windows )
 nw=${#w_all[@]}
 mbar=$(echo $windows | sed 's/ /,/g')
 
+cp ../complex_prepare/RST.all .
 #cp ../restraint_prepare/complex_box.prmtop \
 #   ../restraint_prepare/complex_box.inpcrd .
 top=$(cd ../restraint_prepare; pwd)
