@@ -31,7 +31,7 @@ kb=0.001987  # kcal/(mol*K)
 T=300; V0=1660
 
 # read reference distance and angles in the restraints between the drug and hla
-lines <- readLines("RST.all")
+lines <- readLines("complex_run/RST.all")
 inds <- grep("ixpk", lines)
 vals <- as.numeric(sub(".*r2\\s*=\\s*(.*),\\s*r3\\s*=.*", "\\1", lines[inds]))
 

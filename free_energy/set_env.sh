@@ -1,5 +1,7 @@
 module load amber/18
 #module load openmpi
+module load anaconda2
+
 gpu=0
 ncore=10
 
