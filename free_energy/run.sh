@@ -33,6 +33,8 @@ else
    exit 1
 fi
 
+source set_env.sh
+
 echo 
 echo "#######################"
 echo "$hla, $drug"
@@ -134,4 +136,11 @@ cd complex_run; sh analysis.sh; cd $top
 cd ligand_run; sh analysis.sh; cd $top
 cd restraint_run; sh analysis.sh; cd $top
 
+echo
+echo "===== Completed ====="
+echo "Raw data are under 'results/'"
+echo "Final binding free energy is shown below:"
+
 Rscript final.r
+
+

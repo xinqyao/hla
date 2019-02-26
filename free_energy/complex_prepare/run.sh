@@ -25,6 +25,7 @@ bond m1.${cyx1}.SG m1.${cyx2}.SG
 m2 = loadpdb ../init/ligand.pdb
 
 sys = combine { m1 m2 }
+#saveamberparm sys complex_nowat.prmtop complex_nowat.inpcrd
 savepdb sys complex_nowat.pdb
 
 solvateoct sys TIP3PBOX 10.0 iso

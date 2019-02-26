@@ -1,3 +1,4 @@
+module purge
 module load amber/18
 #module load openmpi
 module load anaconda2
