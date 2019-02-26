@@ -95,9 +95,10 @@ cd ligand_prepare
 sh run.sh
 cd $top
 
-cd restraint_prepare
-sh run.sh
-cd $top
+## deprecated
+#cd restraint_prepare
+#sh run.sh
+#cd $top
 
 ## 3. Run calculations
 echo
