@@ -20,12 +20,12 @@ Energy minimization w/ restraints
   ntr    = 0,
   nmropt = 1,
 
-  icfe   = 1,
-  ifsc   = 0,
-  clambda= %L%,
-  klambda= 1,
-  timask1= ':%LIG1%',
-  timask2= ':%LIG2%',
+!  icfe   = 1,
+!  ifsc   = 0,
+!  clambda= %L%,
+!  klambda= 1,
+!  timask1= ':%LIG1%',
+!  timask2= ':%LIG2%',
  /
 !&wt type='REST', value1=1.0, /
 &wt type='END' /
