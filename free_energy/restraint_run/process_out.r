@@ -19,14 +19,39 @@ system("source ../../windows; echo $windows > w.tmp")
 ww <- as.numeric(strsplit(readLines("w.tmp"), split="\\s+")[[1]])
 unlink("w.tmp")
 
-#rst <- readLines("RST.all")
-#tind <- grep("rk2=", rst)[1]
-#curr.w <- 1.0 - (as.numeric(sub(".*rk2=(.*)\\, rk3.*", "\\1", rst[tind])) / 20.0)
-#curr.w <- ww[which.min(abs(ww-curr.w))]
- 
+rst <- readLines("RST.all")
+tind <- grep("rk2=", rst)[1]
+curr.w <- 1.0 - (as.numeric(sub(".*rk2=(.*)\\, rk3.*", "\\1", rst[tind])) / 20.0)
+curr.w <- ww[which.min(abs(ww-curr.w))]
 
-mylines <- NULL
-j=1
+tind <- grep("ntpr\\s*=", lines)[1]
+ntpr <- as.numeric(sub(".*ntpr\\s*=\\s*([0-9]+),.*", "\\1", lines[tind]))
+
+ind.ctrl <- grep("^NMR refinement options:", lines)
+
+mylines <- lines[1:(ind.ctrl+2)]
+
+mylines <- c(mylines, c("Free energy options:", 
+"     icfe    =       1, ifsc    =       0, klambda =       1",
+paste("     clambda =", sprintf("%8.4f", curr.w), ", scalpha =  0.5000, scbeta  = 12.0000", sep=""),
+"     sceeorder =       2",
+"     dynlmb =  0.0000 logdvdl =       0",
+"",
+"FEP MBAR options:",
+paste("     ifmbar  =       1,  bar_intervall =", sprintf("%9d", ntpr), sep=""),
+paste("     mbar_states =", sprintf("%8d", length(ww)), sep="")) )
+
+j <- ind.ctrl + 3
+
+tind <- grep("^   3.  ATOMIC", lines) - 2
+mylines <- c(mylines, lines[j:tind])
+
+mylines <- c(mylines, c(
+"    MBAR - lambda values considered:",
+paste(sprintf("%8d", length(ww)), " total: ", paste(sprintf("%7.4f", ww), collapse=""), sep=""),
+"    Extra energies will be computed      XX times.") )
+
+j <- tind + 1
 for(i in 1:length(inds)) {
   mylines <- c(mylines, lines[j:(inds[i]-1)])
   mylines <- c(mylines, "MBAR Energy analysis:")
