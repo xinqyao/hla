@@ -34,6 +34,7 @@ else
 fi
 
 source set_env.sh
+root=$(pwd)
 
 echo 
 echo "#######################"
@@ -144,4 +145,4 @@ echo "Final binding free energy is shown below:"
 
 Rscript final.r
 
-
+cd $root

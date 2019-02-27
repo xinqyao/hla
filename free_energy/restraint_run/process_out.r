@@ -26,6 +26,8 @@ curr.w <- ww[which.min(abs(ww-curr.w))]
 
 tind <- grep("ntpr\\s*=", lines)[1]
 ntpr <- as.numeric(sub(".*ntpr\\s*=\\s*([0-9]+),.*", "\\1", lines[tind]))
+tind <- grep("ntave\\s*=", lines)[1]
+ntave <- as.numeric(sub(".*ntave\\s*=\\s*([0-9]+),.*", "\\1", lines[tind]))
 
 ind.ctrl <- grep("^NMR refinement options:", lines)
 
@@ -51,6 +53,8 @@ mylines <- c(mylines, c(
 paste(sprintf("%8d", length(ww)), " total: ", paste(sprintf("%7.4f", ww), collapse=""), sep=""),
 "    Extra energies will be computed      XX times.") )
 
+avg.dvdl <- NULL
+dvdl <- 0.0
 j <- tind + 1
 for(i in 1:length(inds)) {
   mylines <- c(mylines, lines[j:(inds[i]-1)])
@@ -60,9 +64,47 @@ for(i in 1:length(inds)) {
   mylines <- c(mylines, lines[(inds[i]):(inds[i]+dfind)])
   mylines <- c(mylines, paste(" DV/DL  =", sprintf("%15.4f", -full.restr[i]), sep=""))
   mylines <- c(mylines, " ------------------------------------------------------------------------------")
+  dvdl <- dvdl - full.restr[i]
+  if((ntpr * i) %% ntave == 0) {
+     avg.dvdl <- c(avg.dvdl, dvdl / (ntave/ntpr))
+     dvdl <- 0.0
+  }
   j <- inds[i] + dfind + 1 
 }
 mylines <- c(mylines, lines[j:length(lines)])
 
-cat(mylines, sep="\n", file="prod.out")
+### add average DV/DL
+inds <- grep("R M S  F L U C T U A T I O N S", mylines)
+inds2 <- grep(" -----", mylines)
+inds2 <- inds2[inds2>inds[1]]
+inds2 <- inds2[1:(which(inds2>inds[length(inds)])[1])]
+dm <- as.matrix(dist(c(inds, inds2)))
+dm <- dm[1:length(inds), (length(inds)+1):ncol(dm)]
+inds2 <- inds2[apply(dm, 1, which.min)]
+
+mylines2 <- NULL
+j <- 1
+for(i in 1:length(inds)) {
+   tmp <- mylines[inds[i]+3]
+   mylines2 <- c(mylines2, mylines[j:inds2[i]])
+   mylines2 <- c(mylines2, c(
+"",
+"",
+paste("      DV/DL, AVERAGES OVER ", ntave, " STEPS", sep=""),
+"",
+"",
+tmp,
+" Etot   =         0.0000  EKtot   =         0.0000  EPtot      =         0.0000",
+" BOND   =         0.0000  ANGLE   =         0.0000  DIHED      =         0.0000",
+" 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =         0.0000",
+paste(" EELEC  =         0.0000  EHBOND  =         0.0000  RESTRAINT  =", sprintf("%15.4f", avg.dvdl[i]), sep=""),
+" EKCMT  =         0.0000  VIRIAL  =         0.0000  VOLUME     =         0.0000",
+"                                                    Density    =         0.0000",
+paste(" DV/DL  =", sprintf("%15.4f", avg.dvdl[i]), sep=""),
+" ------------------------------------------------------------------------------"))
+   j <- inds2[i] + 1
+}
+mylines2 <- c(mylines2, mylines[j:length(mylines)])
+
+cat(mylines2, sep="\n", file="prod.out")
 
