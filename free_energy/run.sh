@@ -51,9 +51,18 @@ cd results/$hla/$drug
 
 cp ../../../set_env.sh .
 
-cp -r ../../../init ../../../complex* ../../../ligand* ../../../restraint* .
+cp -r ../../../init ../../../complex_run ../../../ligand_prepare ../../../ligand_run \
+      ../../../restraint* .
+
+mkdir ligand_results
+cp ../../../ligand_results/$drug/* ligand_results/
+
 cp ../../../docking/$hla/$drug/ligand_vina.pdb init/
 cp ../../../docking/$hla/$drug/sys_nowat.pdb init/
+
+mkdir complex_prepare
+cp ../../../complex_prepare/run.sh complex_prepare/
+cp ../../../complex_prepare/add_restraints_${drug}.r complex_prepare/add_restraints.r
 
 mkdir ff
 cp ../../../ff/${drug}.* ff/
@@ -114,9 +123,10 @@ cd $top
 
 echo
 echo "=========== 3.2 Ligand (VDW+ELEC) ====="
-echo
+echo "... skipped ..."
 cd ligand_run
-sh run.sh
+#sh run.sh
+cp ../ligand_results/* ./
 cd $top
 
 echo
@@ -135,7 +145,7 @@ echo "====== 4. Analysis ======"
 echo
 echo
 cd complex_run; sh analysis.sh; cd $top
-cd ligand_run; sh analysis.sh; cd $top
+#cd ligand_run; sh analysis.sh; cd $top
 cd restraint_run; sh analysis.sh; cd $top
 
 echo
