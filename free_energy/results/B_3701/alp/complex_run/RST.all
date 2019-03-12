@@ -1,0 +1,32 @@
+# distance
+ &rst
+  ixpk= 0, nxpk= 0, iat= 395,2885, r1= 0.0, r2= 6.763, r3= 6.763, r4= 999.,
+      rk2=20.0, rk3=20.0, ir6=1, ialtd=0,
+ &end
+
+# angles
+ &rst
+  ixpk= 0, nxpk= 0, iat= 397,395,2885, r1= 0.0, r2= 81.1, r3= 81.1, r4= 180,
+      rk2=20.0, rk3=20.0, ir6=1, ialtd=0,
+ &end
+
+ &rst
+  ixpk= 0, nxpk= 0, iat= 395,2885,2880, r1= 0.0, r2= 70, r3= 70, r4= 180,
+      rk2=20.0, rk3=20.0, ir6=1, ialtd=0,
+ &end
+
+# dihedrals
+ &rst
+  ixpk= 0, nxpk= 0, iat= 400,397,395,2885, r1= -19.9, r2= 160.1, r3= 160.1, r4= 340.1,
+      rk2=20.0, rk3=20.0, ir6=1, ialtd=0,
+ &end
+
+ &rst
+  ixpk= 0, nxpk= 0, iat= 397,395,2885,2880, r1= -4.9, r2= 175.1, r3= 175.1, r4= 355.1,
+      rk2=20.0, rk3=20.0, ir6=1, ialtd=0,
+ &end
+
+ &rst
+  ixpk= 0, nxpk= 0, iat= 395,2885,2880,2886, r1= -121.4, r2= 58.6, r3= 58.6, r4= 238.6,
+      rk2=20.0, rk3=20.0, ir6=1, ialtd=0,
+ &end
