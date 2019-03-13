@@ -40,4 +40,17 @@ EOF
 
 tleap -f tleap.in &> leap_simple.log
 
+if test $relax = "TRUE"; then
+   sh relax.sh
+   mv complex_nowat.pdb bak_complex_nowat.pdb
+   cpptraj > ptraj.log <<EOF
+parm complex_box.prmtop
+trajin relax/production/prod.restrt
+strip :WAT,Na+,Cl-
+trajout relax/production/prod_nowat.pdb 
+go
+EOF
+   ln -s relax/production/prod_nowat.pdb ./complex_nowat.pdb
+fi
+
 Rscript add_restraints.r
