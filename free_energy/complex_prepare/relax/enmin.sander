@@ -17,6 +17,8 @@ Energy minimization
 
   cut    = 10.0,     nsnb   = 10,
 
-  ntr    = 0,
+  ntr    = 1,
+  restraint_wt = 20.0,
+  restraintmask = "@CA,N,C,O",
   nmropt = 0,
  /

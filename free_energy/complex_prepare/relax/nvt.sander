@@ -20,6 +20,8 @@ Heating in NVT , 50 ps
   ntc    = 2,       tol    = 0.00001,    ntf    = 1,
   cut    = 10.0,     nsnb   = 10,
 
-  ntr    = 0,
+  ntr    = 1,
+  restraint_wt = 20.0,
+  restraintmask = "!:WAT,Na+,Cl-",
   nmropt = 0,
  /
