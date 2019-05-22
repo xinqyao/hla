@@ -1,0 +1,2 @@
+cudaMemcpy GpuBuffer::Download failed an illegal memory access was encountered
+cudaMemcpy GpuBuffer::Download failed an illegal memory access was encountered

@@ -33,6 +33,8 @@ for w in $windows; do
    mkdir $w
    cd $w
 
+   if test ! $relax = "TRUE"; then
+
    ## 1. Energy minimization, Heating, and Equilibration
    ## NOTE: you might need to modify the path to match your local environment
    mkdir enmin_equil
@@ -48,7 +50,10 @@ for w in $windows; do
    mpirun -v -np ${ncore} pmemd.MPI -O -i enmin.sander -p complex_box.prmtop -c complex_box.inpcrd -o enmin.out -r enmin.restrt -ref complex_box.inpcrd
    pmemd.cuda -O -i nvt.sander -p complex_box.prmtop -c enmin.restrt -o nvt.out -r nvt.restrt -ref enmin.restrt 
    pmemd.cuda -O -i npt.sander -p complex_box.prmtop -c nvt.restrt -o npt.out -r npt.restrt
+
    cd ..
+   
+   fi
 
    ## 2. Production
    mkdir production
@@ -57,11 +62,15 @@ for w in $windows; do
    cp ../../RST.all ./RST_full.all
    sed -e "s/20.0/$(Rscript -e "cat(20.0*(1-$w))")/g" ../../RST.all > RST.all
    ln -s $top/complex_box.prmtop .
-   ln -s ../enmin_equil/npt.restrt .
+   if test $relax = "TRUE"; then
+      ln -s $top/relax/production/prod.restrt prod.0.restrt
+   else
+      ln -s ../enmin_equil/npt.restrt prod.0.restrt
+   fi
    sed -e "s/%NATOM%/$natom/" ../../prod.sander.tmpl > prod.sander
    cp ../../recap.sander .
 
-   pmemd.cuda -O -i prod.sander -p complex_box.prmtop -c npt.restrt -o prod.out -r prod.restrt -x prod.mdcrd 
+   pmemd.cuda -O -i prod.sander -p complex_box.prmtop -c prod.0.restrt -o prod.out -r prod.restrt -x prod.mdcrd 
   
    ## Recap restraint energy at full fc
    cat > ptraj1.in <<EOF
@@ -72,15 +81,15 @@ EOF
 
    cat > ptraj2.in <<EOF
 parm complex_box.prmtop
-trajin npt.restrt
+trajin prod.0.restrt
 strip :WAT,Na+,Cl-
-trajout npt_nowat.restrt ncrestart
+trajout prod.0_nowat.restrt ncrestart
 go
 EOF
 
    cpptraj < ptraj1.in &> ptraj1.log
    cpptraj < ptraj2.in &> ptraj2.log
-   mpirun -v -np ${ncore} sander.MPI -O -i recap.sander -p complex_nowat.prmtop -c npt_nowat.restrt -o recap.out -r recap.restrt -x recap.mdcrd -y prod.mdcrd &> recap.log
+   mpirun -v -np ${ncore} sander.MPI -O -i recap.sander -p complex_nowat.prmtop -c prod.0_nowat.restrt -o recap.out -r recap.restrt -x recap.mdcrd -y prod.mdcrd &> recap.log
    rm -f recap.mdcrd
 
    ## make a prod.out file for alchemic_analysis.py

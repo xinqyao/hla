@@ -1,0 +1,268 @@
+Started on Tue May  7 09:21:37 2019
+Command line was: /software/anaconda2/bin/alchemical_analysis -a AMBER -d . -p [01].[0-9]*/production/prod -q out -o . -r 5 -u kcal -s 0 -g -w -f 10 -t 300
+
+Loading in data from ./0.80/production/prod.out...  
+  WARNING: 350 MBAR energies are > 0.0 kcal/mol
+500 data points, 10 DV/DL averages
+Loading in data from ./1.00/production/prod.out...  
+  WARNING: 466 MBAR energies are > 0.0 kcal/mol
+500 data points, 10 DV/DL averages
+Loading in data from ./0.25/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.05/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.75/production/prod.out...  
+  WARNING: 218 MBAR energies are > 0.0 kcal/mol
+500 data points, 10 DV/DL averages
+Loading in data from ./0.35/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.95/production/prod.out...  
+  WARNING: 450 MBAR energies are > 0.0 kcal/mol
+500 data points, 10 DV/DL averages
+Loading in data from ./0.10/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.20/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.85/production/prod.out...  
+  WARNING: 387 MBAR energies are > 0.0 kcal/mol
+500 data points, 10 DV/DL averages
+Loading in data from ./0.55/production/prod.out...  
+  WARNING: 7 MBAR energies are > 0.0 kcal/mol
+500 data points, 10 DV/DL averages
+Loading in data from ./0.60/production/prod.out...  
+  WARNING: 33 MBAR energies are > 0.0 kcal/mol
+500 data points, 10 DV/DL averages
+Loading in data from ./0.15/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.50/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.30/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.45/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.70/production/prod.out...  
+  WARNING: 112 MBAR energies are > 0.0 kcal/mol
+500 data points, 10 DV/DL averages
+Loading in data from ./0.65/production/prod.out...  
+  WARNING: 54 MBAR energies are > 0.0 kcal/mol
+500 data points, 10 DV/DL averages
+Loading in data from ./0.00/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.40/production/prod.out...  500 data points, 10 DV/DL averages
+Loading in data from ./0.90/production/prod.out...  
+  WARNING: 469 MBAR energies are > 0.0 kcal/mol
+500 data points, 10 DV/DL averages
+
+Sorting input data by starting time
+
+Skipping first 0 steps (= 0.000000 ps)
+
+
+The gradients (DV/DL) from the correlated samples (kcal/mol):
+
+Lambda   gradient
+-----------------
+0.00000    99.618
+0.05000    70.912
+0.10000    52.413
+0.15000    41.591
+0.20000    34.034
+0.25000    32.092
+0.30000    28.143
+0.35000    24.755
+0.40000    21.826
+0.45000    23.009
+0.50000    21.134
+0.55000    19.467
+0.60000    17.389
+0.65000    16.494
+0.70000    12.915
+0.75000     8.783
+0.80000     2.274
+0.85000     4.129
+0.90000     3.860
+0.95000     7.833
+1.00000    10.810
+-----------------
+   dG =    24.913
+
+The correlated gradient (DV/DL) components from _every_single_ step (kcal/mol):
+
+Lambda       BOND     ANGLE     DIHED    1-4 NB   1-4 EEL   VDWAALS     EELEC RESTRAINT
+---------------------------------------------------------------------------------------
+0.00000     0.000     0.000     0.000     0.000     0.000    19.902    30.063     0.000
+0.05000     0.000     0.000     0.000     0.000     0.000    21.428    23.347     0.000
+0.10000     0.000     0.000     0.000     0.000     0.000    22.074    18.357     0.000
+0.15000     0.000     0.000     0.000     0.000     0.000    22.750    14.826     0.000
+0.20000     0.000     0.000     0.000     0.000     0.000    22.581    12.006     0.000
+0.25000     0.000     0.000     0.000     0.000     0.000    22.717    11.206     0.000
+0.30000     0.000     0.000     0.000     0.000     0.000    22.592     9.655     0.000
+0.35000     0.000     0.000     0.000     0.000     0.000    22.565     7.593     0.000
+0.40000     0.000     0.000     0.000     0.000     0.000    22.100     6.489     0.000
+0.45000     0.000     0.000     0.000     0.000     0.000    22.806     6.613     0.000
+0.50000     0.000     0.000     0.000     0.000     0.000    22.096     5.919     0.000
+0.55000     0.000     0.000     0.000     0.000     0.000    22.020     5.154     0.000
+0.60000     0.000     0.000     0.000     0.000     0.000    21.004     4.786     0.000
+0.65000     0.000     0.000     0.000     0.000     0.000    20.327     4.589     0.000
+0.70000     0.000     0.000     0.000     0.000     0.000    17.378     4.583     0.000
+0.75000     0.000     0.000     0.000     0.000     0.000    14.015     5.369     0.000
+0.80000     0.000     0.000     0.000     0.000     0.000     7.756     6.744     0.000
+0.85000     0.000     0.000     0.000     0.000     0.000     8.030     5.182     0.000
+0.90000     0.000     0.000     0.000     0.000     0.000     6.478     4.204     0.000
+0.95000     0.000     0.000     0.000     0.000     0.000     8.727     1.855     0.000
+1.00000     0.000     0.000     0.000     0.000     0.000    10.770     0.157     0.000
+---------------------------------------------------------------------------------------
+   dG =     0.000     0.000     0.000     0.000     0.000    18.239     8.679     0.000 
+
+
+
+Number of correlated and uncorrelated samples:
+
+ State            N          N_k        N/N_k
+
+     0          264          264         1.89
+     1          349          349         1.44
+     2          325          325         1.54
+     3          146          146         3.44
+     4          196          196         2.55
+     5          168          168         2.97
+     6          256          256         1.95
+     7          190          190         2.64
+     8          130          130         3.87
+     9          237          237         2.11
+WARNING: Only 37 uncorrelated samples found at lambda number 10; proceeding with analysis using correlated samples...
+    10           37          500        13.78
+    11          181          181         2.77
+    12          185          185         2.71
+    13           90           90         5.59
+WARNING: Only 49 uncorrelated samples found at lambda number 14; proceeding with analysis using correlated samples...
+    14           49          500        10.30
+    15           66           66         7.59
+WARNING: Only 22 uncorrelated samples found at lambda number 16; proceeding with analysis using correlated samples...
+    16           22          500        23.74
+WARNING: Only 9 uncorrelated samples found at lambda number 17; proceeding with analysis using correlated samples...
+    17            9          500        57.09
+    18          121          121         4.13
+    19           71           71         7.11
+    20          312          312         1.61
+
+Estimating the free energy change with MBAR...
+The overlap matrix is...
+  0.26   0.27   0.20   0.07   0.06   0.04   0.04   0.02   0.01   0.01   0.02   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00 
+  0.21   0.24   0.19   0.07   0.08   0.05   0.05   0.03   0.01   0.02   0.03   0.01   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00 
+  0.16   0.21   0.18   0.07   0.08   0.06   0.07   0.04   0.02   0.03   0.04   0.01   0.01   0.00   0.01   0.00   0.00   0.00   0.00   0.00   0.00 
+  0.12   0.17   0.16   0.07   0.09   0.07   0.09   0.05   0.03   0.04   0.06   0.02   0.01   0.00   0.01   0.00   0.00   0.00   0.00   0.00   0.00 
+  0.09   0.13   0.14   0.07   0.09   0.07   0.10   0.06   0.04   0.05   0.09   0.02   0.02   0.01   0.02   0.00   0.01   0.00   0.00   0.00   0.00 
+  0.06   0.10   0.11   0.06   0.08   0.07   0.11   0.07   0.04   0.07   0.11   0.03   0.02   0.01   0.03   0.00   0.01   0.01   0.00   0.00   0.00 
+  0.04   0.07   0.09   0.05   0.08   0.07   0.11   0.08   0.05   0.08   0.14   0.04   0.03   0.01   0.04   0.00   0.01   0.01   0.00   0.00   0.00 
+  0.03   0.05   0.07   0.04   0.06   0.06   0.10   0.08   0.05   0.09   0.17   0.05   0.04   0.01   0.05   0.00   0.02   0.01   0.00   0.00   0.00 
+  0.02   0.04   0.05   0.03   0.05   0.06   0.10   0.08   0.05   0.10   0.19   0.06   0.05   0.02   0.07   0.01   0.02   0.01   0.00   0.00   0.00 
+  0.01   0.03   0.04   0.02   0.04   0.05   0.09   0.07   0.05   0.10   0.20   0.07   0.06   0.02   0.09   0.01   0.03   0.02   0.00   0.00   0.00 
+  0.01   0.02   0.03   0.02   0.03   0.04   0.07   0.06   0.05   0.09   0.20   0.07   0.07   0.03   0.11   0.01   0.05   0.03   0.00   0.00   0.01 
+  0.01   0.01   0.02   0.01   0.03   0.03   0.06   0.05   0.04   0.09   0.20   0.07   0.07   0.03   0.14   0.01   0.06   0.04   0.01   0.00   0.01 
+  0.00   0.01   0.01   0.01   0.02   0.02   0.04   0.04   0.03   0.07   0.18   0.07   0.08   0.04   0.17   0.02   0.09   0.06   0.01   0.00   0.02 
+  0.00   0.00   0.01   0.01   0.01   0.01   0.03   0.03   0.03   0.06   0.15   0.06   0.07   0.04   0.19   0.02   0.12   0.10   0.02   0.01   0.03 
+  0.00   0.00   0.00   0.00   0.01   0.01   0.02   0.02   0.02   0.04   0.11   0.05   0.06   0.03   0.20   0.02   0.16   0.14   0.03   0.01   0.06 
+  0.00   0.00   0.00   0.00   0.00   0.01   0.01   0.01   0.01   0.03   0.07   0.04   0.05   0.03   0.18   0.03   0.19   0.18   0.04   0.02   0.09 
+  0.00   0.00   0.00   0.00   0.00   0.00   0.01   0.01   0.01   0.02   0.05   0.02   0.03   0.02   0.16   0.03   0.21   0.22   0.05   0.03   0.13 
+  0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.01   0.03   0.02   0.02   0.02   0.14   0.02   0.22   0.24   0.06   0.04   0.17 
+  0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.01   0.02   0.01   0.02   0.01   0.12   0.02   0.22   0.26   0.07   0.04   0.20 
+  0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.01   0.01   0.01   0.01   0.10   0.02   0.21   0.26   0.07   0.05   0.23 
+  0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.01   0.01   0.01   0.01   0.09   0.02   0.21   0.27   0.08   0.05   0.25 
+
+For a nicer figure look at 'O_MBAR.pdf'
+Estimating the free energy change with TI, TI-CUBIC, DEXP, IEXP, BAR...
+------------ ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- 
+   States             TI (kcal/mol)       TI-CUBIC (kcal/mol)           DEXP (kcal/mol)           IEXP (kcal/mol)            BAR (kcal/mol)           MBAR (kcal/mol)    
+------------ ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- 
+   0 -- 1         4.23191  +-  0.02639      4.21203  +-  0.02768      4.38058  +-  0.03713      3.93981  +-  0.03589      4.12170  +-  0.02688      3.62864  +-  0.02985 
+   1 -- 2         3.07773  +-  0.02033      3.03458  +-  0.02294      3.27710  +-  0.02883      2.77485  +-  0.02875      3.03426  +-  0.02113      2.75777  +-  0.02522 
+   2 -- 3         2.35234  +-  0.02254      2.33043  +-  0.02583      2.47896  +-  0.02356      2.18508  +-  0.04185      2.37905  +-  0.02119      2.18136  +-  0.02318 
+   3 -- 4         1.92344  +-  0.02476      1.90596  +-  0.02826      2.04240  +-  0.03311      1.78935  +-  0.03550      1.88927  +-  0.02582      1.77535  +-  0.02192 
+   4 -- 5         1.68554  +-  0.02127      1.68185  +-  0.02442      1.71620  +-  0.03100      1.63386  +-  0.02868      1.68155  +-  0.02128      1.48431  +-  0.02067 
+   5 -- 6         1.50410  +-  0.01773      1.50811  +-  0.02044      1.62117  +-  0.02533      1.36669  +-  0.02469      1.46299  +-  0.01863      1.28143  +-  0.01908 
+   6 -- 7         1.30478  +-  0.01701      1.30136  +-  0.01968      1.40021  +-  0.02161      1.19601  +-  0.02728      1.30975  +-  0.01723      1.14447  +-  0.01739 
+   7 -- 8         1.15507  +-  0.02193      1.13990  +-  0.02503      1.25626  +-  0.02302      1.05078  +-  0.03799      1.16255  +-  0.02187      1.04844  +-  0.01613 
+   8 -- 9         1.13359  +-  0.02115      1.13358  +-  0.02414      1.11546  +-  0.03404      1.14840  +-  0.02370      1.13699  +-  0.01930      0.96968  +-  0.01575 
+   9 -- 10        1.12028  +-  0.01396      1.13141  +-  0.01632      1.21717  +-  0.02076      1.01487  +-  0.01773      1.07511  +-  0.01427      0.89205  +-  0.01634 
+  10 -- 11        1.02153  +-  0.01601      1.01974  +-  0.01848      1.09646  +-  0.01627      0.93360  +-  0.02879      1.04948  +-  0.01447      0.80442  +-  0.01770 
+  11 -- 12        0.92125  +-  0.02046      0.91801  +-  0.02354      1.03588  +-  0.02540      0.79461  +-  0.03247      0.90424  +-  0.02198      0.69049  +-  0.01982 
+  12 -- 13        0.84379  +-  0.02603      0.84715  +-  0.02970      0.91675  +-  0.02859      0.76597  +-  0.04263      0.86244  +-  0.02517      0.52663  +-  0.02294 
+  13 -- 14        0.73859  +-  0.02363      0.74227  +-  0.02736      0.89371  +-  0.04088      0.57115  +-  0.02223      0.61633  +-  0.02018      0.31617  +-  0.02599 
+  14 -- 15        0.56770  +-  0.03001      0.58244  +-  0.03429      0.71876  +-  0.02081      0.37848  +-  0.06061      0.67362  +-  0.01996      0.13476  +-  0.02624 
+  15 -- 16        0.30165  +-  0.03065      0.28657  +-  0.03488      0.59483  +-  0.05108     -0.03162  +-  0.02824      0.03984  +-  0.02585      0.07380  +-  0.02311 
+  16 -- 17        0.16006  +-  0.01692      0.14342  +-  0.02003      0.25549  +-  0.02248      0.06300  +-  0.02598      0.15021  +-  0.01732      0.14575  +-  0.01923 
+  17 -- 18        0.18364  +-  0.02138      0.18270  +-  0.02460      0.34309  +-  0.02083     -0.01968  +-  0.04135      0.26996  +-  0.01870      0.30164  +-  0.01630 
+  18 -- 19        0.27768  +-  0.02940      0.26285  +-  0.03273      0.32228  +-  0.03219      0.26165  +-  0.05226      0.29405  +-  0.02799      0.49047  +-  0.01434 
+  19 -- 20        0.46784  +-  0.02469      0.48003  +-  0.03139      0.51549  +-  0.04160      0.40867  +-  0.01845      0.43010  +-  0.01706      0.68065  +-  0.01290 
+------------ ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- 
+    TOTAL:       24.97251  +-  0.14226     24.84441  +-  0.14435     27.19827  +-  0.13490     22.22552  +-  0.15409     24.54348  +-  0.09466     21.32827  +-  0.22732 
+
+************************************************************************************************************************************************************************
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII   The above table has been stored in   IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII             ./results.txt              IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII     while the full-precision data      IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII (along with the simulation profile) in IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII            ./results.pickle            IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+************************************************************************************************************************************************************************
+Forward dF(t) analysis...
+Estimating the free energy change using the data up to
+                                                        99.8 ps...
+                                                       199.6 ps...
+                                                       299.4 ps...
+                                                       399.2 ps...
+                                                       499.0 ps...
+                                                       598.8 ps...
+                                                       698.6 ps...
+                                                       798.4 ps...
+                                                       898.2 ps...
+Reverse dF(t) analysis...
+Using the data starting from
+                              99.8 ps...
+                             199.6 ps...
+                             299.4 ps...
+                             399.2 ps...
+                             499.0 ps...
+                             598.8 ps...
+                             698.6 ps...
+                             798.4 ps...
+                             898.2 ps...
+
+   The free energies (kcal/mol) evaluated by using the trajectory
+   snaphots corresponding to various time intervals for both the
+   reverse and forward (in parentheses) direction.
+
+----------------------------------------------------------------------
+    Time interval, ps             Reverse              Forward
+----------------------------------------------------------------------
+       0.0 -- 998.0
+      (0.0 -- 0.0)            21.328 +- 0.227           XXXXXX
+
+      99.8 -- 998.0
+      (0.0 -- 99.8)           20.680 +- 0.258      23.736 +- 0.474
+
+     199.6 -- 998.0
+      (0.0 -- 199.6)          20.576 +- 0.266      22.475 +- 0.378
+
+     299.4 -- 998.0
+      (0.0 -- 299.4)          21.050 +- 0.286      21.292 +- 0.331
+
+     399.2 -- 998.0
+      (0.0 -- 399.2)          20.905 +- 0.277      21.139 +- 0.298
+
+     499.0 -- 998.0
+      (0.0 -- 499.0)          21.102 +- 0.282      20.654 +- 0.281
+
+     598.8 -- 998.0
+      (0.0 -- 598.8)          21.375 +- 0.319      21.028 +- 0.265
+
+     698.6 -- 998.0
+      (0.0 -- 698.6)          21.336 +- 0.360      20.785 +- 0.261
+
+     798.4 -- 998.0
+      (0.0 -- 798.4)          20.798 +- 0.405      20.979 +- 0.239
+
+     898.2 -- 998.0
+      (0.0 -- 898.2)          21.491 +- 0.512      21.087 +- 0.248
+
+     998.0 -- 998.0
+      (0.0 -- 998.0)               XXXXXX          21.328 +- 0.227
+----------------------------------------------------------------------
+Plotting data to the file dF_t.pdf...
+
+
+Plotting the free energy breakdown figure...
+Plotting the TI figure...
+
+Time spent: 0 hours, 0 minutes, and 17.77 seconds.
+Finished on Tue May  7 09:21:55 2019

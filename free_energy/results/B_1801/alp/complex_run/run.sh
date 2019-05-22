@@ -22,6 +22,8 @@ for w in $windows; do
    mkdir $w
    cd $w
 
+   if test ! $relax = "TRUE"; then  
+
    ## 1. Energy minimization, Heating, and Equilibration
    ## NOTE: you might need to modify the path to match your local environment
    mkdir enmin_equil
@@ -38,17 +40,23 @@ for w in $windows; do
    pmemd.cuda -O -i nvt.sander -p complex_box.prmtop -c enmin.restrt -o nvt.out -r nvt.restrt -ref enmin.restrt 
    pmemd.cuda -O -i npt.sander -p complex_box.prmtop -c nvt.restrt -o npt.out -r npt.restrt
    cd ..
+   
+   fi
 
    ## 2. Production
    mkdir production
    cd production
    cp ../../../set_env.sh ../../RST.all .
    ln -s $top/complex_box.prmtop .
-   ln -s ../enmin_equil/npt.restrt .
+   if test $relax = "TRUE"; then
+      ln -s $top/relax/production/prod.restrt prod.0.restrt
+   else
+      ln -s ../enmin_equil/npt.restrt prod.0.restrt
+   fi
    sed -e "s/%L%/$w/" -e "s/%NATOM%/$natom/" -e "s/%LIG%/$ligand/" \
        -e "s/%W%/$nw/" -e "s/%MBAR%/$mbar/" ../../prod.sander.tmpl > prod.sander
 
-   pmemd.cuda -O -i prod.sander -p complex_box.prmtop -c npt.restrt -o prod.out -r prod.restrt -x prod.mdcrd 
+   pmemd.cuda -O -i prod.sander -p complex_box.prmtop -c prod.0.restrt -o prod.out -r prod.restrt -x prod.mdcrd 
    
    cd ..
    cd ..

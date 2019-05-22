@@ -1,0 +1,7 @@
+Binding free energy:
+       TI  TI-CUBIC      DEXP      IEXP       BAR      MBAR 
+-4.021115 -4.028895 -2.974185 -5.391015 -4.075225 -3.487915 
+
+Estimated errors:
+       TI  TI-CUBIC      DEXP      IEXP       BAR      MBAR 
+0.1570172 0.1565984 0.1497821 0.1731891 0.1065436 0.2513649 
